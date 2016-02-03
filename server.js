@@ -4,6 +4,11 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.set('view engine', 'jade');
+
+app.get('/', (req, res) => {
+  res.render('index');
+});
 
 app.get('/hello', (req,res) => {
   const name = req.query.name;
@@ -47,7 +52,7 @@ app.get('/random/:min/:max', (req, res) => {
   res.send(getRandomInt(+min, +max).toString());
 });
 
-app.all('*', (req, res) => {
+app.all('/secret', (req, res) => {
   res
   .status(403)
   .send('Access Denied!');
