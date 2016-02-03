@@ -3,12 +3,27 @@ const express = require('express');
 //shorten it to require('express')();
 const app = express();
 const PORT = process.env.PORT || 3000;
+const path = require('path');
+
+app.use(require('node-sass-middleware')({
+  src: path.join(__dirname, 'public'),
+  dest: path.join(__dirname, 'public'),
+  indentedSyntax: true,
+  sourceMap: true
+}));
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.set('view engine', 'jade');
 
 app.get('/', (req, res) => {
-  res.render('index');
-});
+  setTimeout(() => {
+    res.render('index', {
+      title: 'The Lovely Cal App',
+
+    });
+  }, 2000);
+ });
 
 app.get('/hello', (req,res) => {
   const name = req.query.name;
