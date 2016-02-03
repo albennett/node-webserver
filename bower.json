@@ -1,0 +1,24 @@
+{
+  "name": "node-webserver",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Amy Lee Bennett <amyleeannebennett@gmail.com> (https://www.amylee.co/)"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/albennett/node-webserver",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.0",
+    "font-awesome": "^4.5.0",
+    "bootstrap": "^3.3.6"
+  }
+}
