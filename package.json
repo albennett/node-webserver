@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/albennett/node-webserver#readme",
   "dependencies": {
     "express": "^4.13.4",
+    "jade": "^1.11.0",
     "node-cal": "github:albennett/node-cal"
   }
 }
