@@ -1,22 +1,16 @@
-doctype.html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/vendor/bootstrap/dist/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/vendor/font-awesome/css/font-awesome.min.css')
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    #background
-      h1  Welcome to #{title}
-      //- p The date is now #{date.toLocaleDateString('en-US')}
-    #image
-      a(onMouseOver="changeImage()") Don't forget your loved ones birthday..
-      img(src= '../images/walkinggirl.jpg')
-      p.par Know the date. Use the cal command line tool. Type the month and year in the url to see it in action.
-      i.fa.fa-calendar.fa-lg.fa-align-center
-      p.parag ex: http://localhost:3000/2/2016
+extends ./layout.jade
+block content
+  #background
+    h1  Welcome to #{title}
+    //- p The date is now #{date.toLocaleDateString('en-US')}
+  #image
+    a(onMouseOver="changeImage()") Don't forget your loved ones birthday..
+    img(src= '../images/walkinggirl.jpg')
+    p.par Know the date. Use the cal command line tool. Type the month and year in the url to see it in action.
+    i.fa.fa-calendar.fa-lg.fa-align-center
+    p.parag ex: http://localhost:3000/2/2016
 
-    script(src='./vendor/jquery/dist/jquery.min.js')
-    script(src='/javascripts/main.js')
+  script(src='./vendor/jquery/dist/jquery.min.js')
+  script(src='/javascripts/main.js')
 
 
