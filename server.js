@@ -39,14 +39,31 @@ app.post('/contact', (req, res) => {
 })
 
 app.get('/sendphoto', (req, res) => {
-  console.log("res", res);
   res.render('sendphoto');
+
 });
 
 app.post('/sendphoto', upload.single('image'), (req, res) => {
   console.log('reqbody', req.body);
   console.log("req.file", req.file);
-  res.send('Thanks for sending us your photo');
+  // res.send('Thanks for sending us your photo');
+  // get the temporary location of the file
+  const tmp_path= req.file.path;
+  //get the extention of the file
+  const fullName = req.file.originalname;
+  const splitRes = fullName.split(".");
+  const newFileName = req.file.filename + '.' + splitRes[1];
+ // set where the file should actually exists - in this case it is in the "images" directory
+  const target_path = 'tmp/uploads/' + newFileName;
+ // move the file from the temporary location to the intended location
+  fs.rename(tmp_path, target_path, function(err) {
+    if (err) throw err;
+       // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+    fs.unlink(tmp_path, function() {
+      if (err) throw err;
+      res.send('File uploaded to: ' + target_path + ' - ' + req.file.size + ' bytes');
+    });
+  });
 });
 
 app.get('/hello', (req,res) => {
