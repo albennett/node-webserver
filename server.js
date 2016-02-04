@@ -64,6 +64,15 @@ app.post('/sendphoto', upload.single('image'), (req, res) => {
       res.send('File uploaded to: ' + target_path + ' - ' + req.file.size + ' bytes');
     });
   });
+
+  imgur.uploadFile(target_path)
+    .then(function (json) {
+      console.log('imgr', json.data.link);
+    })
+    .catch(function (err) {
+      console.error(err.message);
+    });
+
 });
 
 app.get('/hello', (req,res) => {
