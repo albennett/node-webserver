@@ -2,8 +2,11 @@
 const express = require('express');
 //shorten it to require('express')();
 const app = express();
+const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const path = require('path');
+const upload = require('multer')({ dest: 'tmp/uploads'});
+
 
 app.use(require('node-sass-middleware')({
   src: path.join(__dirname, 'public'),
