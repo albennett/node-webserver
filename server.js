@@ -16,17 +16,37 @@ app.use(require('node-sass-middleware')({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 app.set('view engine', 'jade');
 
-app.get('/', (req, res) => {
-  setTimeout(() => {
-    res.render('index', {
-      title: 'The Lovely Cal App',
+app.locals.title = 'The Lovely Cal App'
 
-    });
-  }, 2000);
- });
+// app.use(bodyParser.urlencoded({extended: false}));
+
+
+app.get('/', (req, res) => {
+  res.render('index', {
+  });
+});
+
+app.get('/contact', (req, res) => {
+  res.render('contact');
+  });
+
+app.post('/contact', (req, res) => {
+  console.log("reqbody", req.body);
+  const name = req.body.name;
+  res.send(`<h1>Thanks for contacting us ${name}</h1>`);
+})
+
+app.get('/sendphoto', (req, res) => {
+  res.render('sendphoto');
+});
+
+app.post('/sendphoto', upload.single('image'), (req, res) => {
+  console.log('reqbody', req.body);
+  console.log("req.file", req.file);
+  res.send('Thanks for sending us your photo');
+});
 
 app.get('/hello', (req,res) => {
   const name = req.query.name;
