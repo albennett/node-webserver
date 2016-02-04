@@ -1,4 +1,3 @@
-
 function changeImage(){
   console.log("hi");
   var image = document.getElementById('image');
@@ -10,3 +9,5 @@ $(document).on('click', 'h1', function(){
   $(this).fadeOut("fast");
   $(this).fadeIn('slow');
 });
+
+
