@@ -6,7 +6,8 @@ const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const path = require('path');
 const upload = require('multer')({ dest: 'tmp/uploads'});
-
+const fs = require("fs");
+const imgur = require('imgur');
 
 app.use(require('node-sass-middleware')({
   src: path.join(__dirname, 'public'),
@@ -21,7 +22,6 @@ app.set('view engine', 'jade');
 app.locals.title = 'The Lovely Cal App'
 
 // app.use(bodyParser.urlencoded({extended: false}));
-
 
 app.get('/', (req, res) => {
   res.render('index', {
@@ -39,6 +39,7 @@ app.post('/contact', (req, res) => {
 })
 
 app.get('/sendphoto', (req, res) => {
+  console.log("res", res);
   res.render('sendphoto');
 });
 
