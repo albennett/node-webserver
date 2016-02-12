@@ -7,29 +7,37 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "bower": "bower install"
+    "bower": "bower install",
+    "Font-Awesome": "*"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/albennett/node-webserver.git"
+    "url": "git+https://github.com/micahp0506/node-webserver.git"
   },
   "keywords": [],
-  "author": "Amy Lee Bennett <amyleeannebennett@gmail.com> (https://www.amylee.co/)",
+  "author": "Micah Wells <micahp0506@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/albennett/node-webserver/issues"
+    "url": "https://github.com/micahp0506/node-webserver/issues"
   },
-  "homepage": "https://github.com/albennett/node-webserver#readme",
+  "homepage": "https://github.com/micahp0506/node-webserver#readme",
   "dependencies": {
     "body-parser": "^1.14.2",
+    "bootstrap": "^3.3.6",
+    "cheerio": "^0.20.0",
     "express": "^4.13.4",
+    "font-awesome": "^4.5.0",
     "imgur": "^0.1.7",
     "jade": "^1.11.0",
+    "lodash": "^4.3.0",
+    "mongoose": "^4.4.3",
     "multer": "^1.1.0",
-    "node-cal": "github:albennett/node-cal",
-    "node-sass-middleware": "^0.9.7"
+    "node-cal": "github:micahp0506/node-cal",
+    "node-sass-middleware": "^0.9.7",
+    "request": "^2.69.0"
   },
   "devDependencies": {
-    "bower": "^1.7.7"
+    "bower": "^1.7.7",
+    "nodemon": "^1.8.1"
   }
 }
