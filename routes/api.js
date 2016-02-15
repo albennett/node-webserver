@@ -7,18 +7,6 @@ const cheerio = require('cheerio');
 const AllCaps = require('../models/allcaps');
 const News = require('../models/news');
 
-
-router.get('/', (req, res) => {
-  News.findOne().sort('-_id').exec((err, doc) => {
-    if (err) throw err;
-
-    res.render('index', {
-      date: new Date(),
-      topStory: doc.top[0]
-    });
-  });
-});
-
 router.get('/api', (req, res) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.send({hello: 'world'});

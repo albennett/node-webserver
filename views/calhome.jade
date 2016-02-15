@@ -1,14 +1,14 @@
+extends ./layout.jade
 block content
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='/vendor/bootstrap/dist/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/vendor/font-awesome/css/font-awesome.min.css')
-  body
-    div#calendar
-      span#red Make
-      span#white Calendars
-      span#blue Great Again
-      span#red !
-      span#white !
-      span#blue !
-      //-i.fa.fa-flag-checkered
-    h1#yep You're a fu@$ing loser if you're not using Node-Cal!
+#background
+  h1  Welcome to #{title}
+  //- p The date is now #{date.toLocaleDateString('en-US')}
+#image
+  a(onMouseOver="changeImage()") Don't forget your loved ones birthday..
+  img(src= '../images/walkinggirl.jpg')
+  p.par Know the date. Use the cal command line tool. Type the month and year in the url to see it in action.
+  i.fa.fa-calendar.fa-lg.fa-align-center
+  p.parag ex: http://localhost:3000/2/2016
+
+link(href='./vendor/jquery/dist/jquery.min.js')
+link(href='/javascripts/main.js')

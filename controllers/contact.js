@@ -1,13 +1,10 @@
-'use strict'
-const express = require('express');
-const router = express.Router();
-const Contact = require('../models/contact');
+'use strict';
 
-router.get('/contact', (req, res) => {
+module.exports.index = (req, res) => {
   res.render('contact');
-});
+};
 
-router.post('/contact', (req, res) => {
+module.exports.new = (req, res) => {
   const obj = new Contact({
     name: req.body.name,
     email: req.body.email,
@@ -19,6 +16,4 @@ router.post('/contact', (req, res) => {
 
     res.send(`<h1>Thanks for contacting us ${newObj.name}</h1>`);
   });
-});
-
-module.exports = router;
+};
