@@ -1,19 +1,10 @@
 'use strict';
 const express = require('express');
 const router = express.Router();
+const ctrl = require('../controllers/random');
 
-router.get('/random', (req, res) => {
-  res.send(Math.random().toString());
-});
-
-router.get('/random/:min/:max', (req, res) => {
-  const min = req.params.min;
-  const max = req.params.max;
-
-  res.send(getRandomInt(+min, +max).toString());
-});
+router.get('/random', ctrl.math);
+router.get('/random/:min/:max', ctrl.params);
 
 module.exports = router;
-function getRandomInt (min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
+
